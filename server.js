@@ -11,9 +11,12 @@ io.on('connection', (socketClient) => {
         console.log("ping from client")
         socketClient.emit("pong", {})
     })
+    socketClient.on("send", (mes) =>{
+        io.emit("received", mes.messaggio)
+    })
 })
 
-setInterval(() => {
+/*setInterval(() => {
     io.emit("pong", {})    
-}, 1000);
+}, 1000);*/
 server.listen(3000)
