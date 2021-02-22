@@ -13,6 +13,7 @@ clientSocket.on("connect", (socket)=>{
     btnSend.onclick = () => {
         clientSocket.emit("send", {"messaggio": message.value})
         console.log(message.value)
+        message.value = ""
     }
 })
 
